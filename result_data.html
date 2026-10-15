@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<style>
+body {
+    text-align: center;
+}
+table {
+    display: inline-block;
+    border-collapse: collapse;
+}
+</style>
+<body>
+    <p><strong>Registration Successful</strong></p>
+    <table border="1">
+        {% for key, value in result.items() %}
+        <tr>
+            <th>{{ key }}</th>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

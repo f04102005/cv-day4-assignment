@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Task Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .form-container { margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; width: 300px; }
+        input, select, button { margin-top: 10px; width: 100%; padding: 8px; }
+    </style>
+</head>
+<body>
+
+    <h2>Admin Task Dashboard</h2>
+    <a href="/logout">Logout</a>
+
+    <div class="form-container">
+        <h3>Add New Task</h3>
+        <form action="/add_task" method="POST">
+            <label>Task Title:</label>
+            <input type="text" name="title" required>
+            
+            <label>Status:</label>
+            <select name="status">
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+            
+            <button type="submit">Add Task</button>
+        </form>
+    </div>
+
+    <h3>Current Tasks</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Status</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task[0] }}</td>
+            <td>{{ task[1] }}</td>
+            <td>{{ task[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
